@@ -28,6 +28,30 @@ def buscar_empleado_en_csv(legajo_buscado):
 # Modificamos los días del empleado en memoria para mostrar el impacto del proceso.
 def actualizar_dias_en_memoria(empleado, dias_a_descontar):
     empleado["dias_disponibles"] -= dias_a_descontar
+def actualizar_dias_en_csv(legajo, nuevo_saldo):
+
+    empleados = []
+
+    with open("usuarios.csv", mode="r", encoding="utf-8") as file:
+        reader = csv.DictReader(file)
+
+        for fila in reader:
+
+            if fila["legajo"].strip() == str(legajo).strip():
+                fila["dias"] = str(nuevo_saldo)
+
+            empleados.append(fila)
+
+
+    with open("usuarios.csv", mode="w", newline="", encoding="utf-8") as file:
+
+        campos = ["legajo", "nombre", "dias"]
+
+        writer = csv.DictWriter(file, fieldnames=campos)
+
+        writer.writeheader()
+
+        writer.writerows(empleados)
 
 
 # 3. LÓGICA PRINCIPAL: MÁQUINA DE ESTADOS Y REGLAS DE NEGOCIO
@@ -66,12 +90,12 @@ def procesar_mensaje_bot(empleado, mensaje_usuario):
 
             # COMPUERTA LÓGICA (Gateway de Decisión en tu diagrama BPMN)
             if 0 < dias_solicitados <= dias_disponibles:
-                # CAMINO FELIZ: Cumple las reglas de negocio
                 actualizar_dias_en_memoria(empleado, dias_solicitados)
-                
-                # Volvemos el estado al inicio para cerrar el ciclo de este trámite
+                actualizar_dias_en_csv(
+                    empleado["legajo"],
+                    empleado["dias_disponibles"]
+                )
                 empleado["estado_conversacion"] = "INICIO"
-                
                 respuesta_bot = (
                     f"¡Solicitud Aprobada Exitosamente!\n"
                     f"Se registraron tus {dias_solicitados} días de vacaciones.\n"
