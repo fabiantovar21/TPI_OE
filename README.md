@@ -1,4 +1,4 @@
-# 🤖 Chatbot para Gestión de Vacaciones
+# Chatbot para Gestión de Vacaciones
 
 <p align="center">
 
@@ -11,7 +11,7 @@
 
 ---
 
-# 📌 Descripción
+# Descripción
 
 Este proyecto fue desarrollado como **Trabajo Práctico Integrador** de la materia **Organización Empresarial** de la **Tecnicatura Universitaria en Programación (TUP)**.
 
@@ -21,14 +21,14 @@ La solución implementada simula la interacción entre un empleado y un asistent
 
 ---
 
-# 👥 Integrantes
+# Integrantes
 
 - **Fabian Tovar**
 - **Darwing Lohn**
 
 ---
 
-# 🏢 Empresa Simulada
+# Empresa Simulada
 
 **TechSolutions SRL**
 
@@ -38,7 +38,7 @@ La solución implementada simula la interacción entre un empleado y un asistent
 
 ---
 
-# 🛠️ Tecnologías Utilizadas
+# Tecnologías Utilizadas
 
 | Herramienta | Uso |
 |------------|-----|
@@ -50,7 +50,7 @@ La solución implementada simula la interacción entre un empleado y un asistent
 
 ---
 
-# 📂 Estructura del Proyecto
+# Estructura del Proyecto
 
 ```text
 TPI_OE/
@@ -70,7 +70,7 @@ TPI_OE/
 
 ---
 
-# 🗄️ Base de Datos Simulada
+# Base de Datos Simulada
 
 El sistema utiliza un archivo denominado **usuarios.csv** para almacenar información de los empleados.
 
@@ -86,25 +86,25 @@ legajo,nombre,dias
 
 ---
 
-# ⚙️ Funcionalidades
+# Funcionalidades
 
 El chatbot permite:
 
-✅ Validar la existencia del empleado mediante número de legajo.
+ Validar la existencia del empleado mediante número de legajo.
 
-✅ Consultar el saldo disponible de vacaciones.
+ Consultar el saldo disponible de vacaciones.
 
-✅ Solicitar una cantidad determinada de días.
+ Solicitar una cantidad determinada de días.
 
-✅ Aprobar o rechazar solicitudes según reglas de negocio.
+ Aprobar o rechazar solicitudes según reglas de negocio.
 
-✅ Mantener el estado de la conversación mediante una máquina de estados.
+ Mantener el estado de la conversación mediante una máquina de estados.
 
-✅ Detectar errores de entrada del usuario.
+ Detectar errores de entrada del usuario.
 
 ---
 
-# ▶️ Ejecución del Programa
+# Ejecución del Programa
 
 Abrir una terminal dentro de la carpeta del proyecto y ejecutar:
 
@@ -114,7 +114,7 @@ python main.py
 
 ---
 
-# 🔄 Máquina de Estados
+# Máquina de Estados
 
 Estados implementados:
 
@@ -127,18 +127,18 @@ Estos estados permiten que el chatbot recuerde en qué etapa del proceso se encu
 
 ---
 
-# 🚨 Caminos de Excepción
+# Caminos de Excepción
 
 El sistema contempla diferentes escenarios de error:
 
-- ❌ Legajo inexistente.
-- ❌ Ingreso de texto en lugar de números.
-- ❌ Solicitud de una cantidad mayor a los días disponibles.
-- ❌ Solicitud de cero o menos días.
+- Legajo inexistente.
+- Ingreso de texto en lugar de números.
+- Solicitud de una cantidad mayor a los días disponibles.
+- Solicitud de cero o menos días.
 
 ---
 
-# 📈 Diagramas BPMN
+# Diagramas BPMN
 
 Se incluyen dos modelos BPMN desarrollados para representar el proceso administrativo.
 
@@ -150,7 +150,7 @@ Representa el proceso automatizado mediante chatbot.
 
 ---
 
-# 🤖 Herramientas de Inteligencia Artificial Utilizadas
+# Herramientas de Inteligencia Artificial Utilizadas
 
 Se utilizaron herramientas de IA como apoyo para:
 
@@ -163,7 +163,7 @@ Se adjuntan capturas de las consultas realizadas como evidencia del proceso de d
 
 ---
 
-# 🎓 Asignatura
+# Asignatura
 
 **Organización Empresarial**
 
