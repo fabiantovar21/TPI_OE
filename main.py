@@ -26,7 +26,7 @@ def buscar_empleado_en_csv(legajo_buscado):
 
 # 2. ACTUALIZACIÓN DINÁMICA (SIMULACIÓN DE ESCRITURA)
 # Modificamos los días del empleado en memoria para mostrar el impacto del proceso.
-def actualizar_dias_en_memoria(empleado, dias_a_descontar):
+def actualizar_dias(empleado, dias_a_descontar):
     empleado["dias_disponibles"] -= dias_a_descontar
 def actualizar_dias_en_csv(legajo, nuevo_saldo):
 
@@ -34,23 +34,15 @@ def actualizar_dias_en_csv(legajo, nuevo_saldo):
 
     with open("usuarios.csv", mode="r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
-
         for fila in reader:
-
             if fila["legajo"].strip() == str(legajo).strip():
                 fila["dias"] = str(nuevo_saldo)
-
             empleados.append(fila)
 
-
     with open("usuarios.csv", mode="w", newline="", encoding="utf-8") as file:
-
         campos = ["legajo", "nombre", "dias"]
-
         writer = csv.DictWriter(file, fieldnames=campos)
-
         writer.writeheader()
-
         writer.writerows(empleados)
 
 
@@ -90,7 +82,7 @@ def procesar_mensaje_bot(empleado, mensaje_usuario):
 
             # COMPUERTA LÓGICA (Gateway de Decisión en tu diagrama BPMN)
             if 0 < dias_solicitados <= dias_disponibles:
-                actualizar_dias_en_memoria(empleado, dias_solicitados)
+                actualizar_dias(empleado, dias_solicitados)
                 actualizar_dias_en_csv(
                     empleado["legajo"],
                     empleado["dias_disponibles"]
@@ -118,7 +110,7 @@ def procesar_mensaje_bot(empleado, mensaje_usuario):
 # --- 4. INTERFAZ DE SIMULACIÓN EN CONSOLA (DEMOSTRACIÓN EN VIVO) ---
 if __name__ == "__main__":
     print("========SISTEMA DE AUTOMATIZACIÓN DE PROCESOS - RRHH (TUP)========")
-    print("Cargando base de datos desde el archivo usuario.csv...")
+    print("Cargando base de datos desde el archivo usuarios.csv...\n")
     
     # Volvemos a pedir el número de legajo
     legajo_ingresado = input("Por favor, ingresá tu número de legajo para iniciar: ")
